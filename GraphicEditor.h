@@ -1,9 +1,13 @@
+/*
+
+*/
+
 #include <iostream>
 #include <vector>
 using namespace std;
 
 
-/*¸ğµç ÀÔ·ÂÀº ¿¹¿Ü Ã³¸®¸¦ °í·ÁÇÏÁö ¾Ê¾Ò´Ù.*/
+/*ëª¨ë“  ì…ë ¥ì€ ì˜ˆì™¸ ì²˜ë¦¬ë¥¼ ê³ ë ¤í•˜ì§€ ì•Šì•˜ë‹¤.*/
 
 class Shape {
 protected:
@@ -30,22 +34,22 @@ public:
 
 class UI {
 public:
-	static void printGraphic() { cout << "±×·¡ÇÈ ¿¡µğÅÍÀÔ´Ï´Ù." << endl; }
+	static void printGraphic() { cout << "ê·¸ë˜í”½ ì—ë””í„°ì…ë‹ˆë‹¤." << endl; }
 	static int selectMenu() {
 		int inputVal;
-		cout << "»ğÀÔ:1, »èÁ¦:2, ¸ğµÎº¸±â:3, Á¾·á:4 >> ";
+		cout << "ì‚½ì…:1, ì‚­ì œ:2, ëª¨ë‘ë³´ê¸°:3, ì¢…ë£Œ:4 >> ";
 		cin >> inputVal;
 		return inputVal;
 	}
 	static int selectShape() {
 		int inputVal;
-		cout << "¼±:1, ¿ø:2, »ç°¢Çü:3 >> ";
+		cout << "ì„ :1, ì›:2, ì‚¬ê°í˜•:3 >> ";
 		cin >> inputVal;
 		return inputVal;
 	}
 	static int selectDel() {
 		int inputVal;
-		cout << "»èÁ¦ÇÏ°íÀÚ ÇÏ´Â µµÇüÀÇ ÀÎµ¦½º >> ";
+		cout << "ì‚­ì œí•˜ê³ ì í•˜ëŠ” ë„í˜•ì˜ ì¸ë±ìŠ¤ >> ";
 		cin >> inputVal;
 		return inputVal;
 	}
@@ -97,29 +101,29 @@ public:
 		}
 	}
 	void deleteShape(int index) {
-		/*¾Æ¹«°Íµµ »ğÀÔÇÏÁö ¾Ê¾ÒÀ¸¸é »èÁ¦ÇÒ °ÍÀÌ ¾ø´Ù.*/
+		/*ì•„ë¬´ê²ƒë„ ì‚½ì…í•˜ì§€ ì•Šì•˜ìœ¼ë©´ ì‚­ì œí•  ê²ƒì´ ì—†ë‹¤.*/
 		if (!pStart)	return;
 
 		Shape * prev;
 		Shape *del;
-		/*¸Ç ¾Õ µµÇüÀ» »èÁ¦ÇÏ´Â °æ¿ì*/
+		/*ë§¨ ì• ë„í˜•ì„ ì‚­ì œí•˜ëŠ” ê²½ìš°*/
 		if (index == 0) {
 			del = pStart;
 			pStart = pStart->next;
 			delete(del);
 			return;
 		}
-		/*Áß°£ µµÇüÀ» »èÁ¦ÇÏ´Â °æ¿ì, prevÀÇ ´ÙÀ½ µµÇüÀ» »èÁ¦ÇÏ°Ô Á¶Àı*/
+		/*ì¤‘ê°„ ë„í˜•ì„ ì‚­ì œí•˜ëŠ” ê²½ìš°, prevì˜ ë‹¤ìŒ ë„í˜•ì„ ì‚­ì œí•˜ê²Œ ì¡°ì ˆ*/
 		prev = pStart;
 		for (int i = 0; i < index - 1; i++) {
 			prev = prev->next;
-			/*ÀÎµ¦½º¸¦ ¹ş¾î³­ °ª¿¡ Á¢±ÙÇÏ¸é ±×³É ¸®ÅÏÇÔ*/
+			/*ì¸ë±ìŠ¤ë¥¼ ë²—ì–´ë‚œ ê°’ì— ì ‘ê·¼í•˜ë©´ ê·¸ëƒ¥ ë¦¬í„´í•¨*/
 			if (prev == NULL)	return;
 		}
-		/*»èÁ¦ÇÒ ³ëµå*/
+		/*ì‚­ì œí•  ë…¸ë“œ*/
 		del = prev->next;
 
-		/*ÀÎµ¦½º¸¦ ¹ş¾î³­ °ª¿¡ Á¢±ÙÇÏ¸é ±×³É ¸®ÅÏÇÔ*/
+		/*ì¸ë±ìŠ¤ë¥¼ ë²—ì–´ë‚œ ê°’ì— ì ‘ê·¼í•˜ë©´ ê·¸ëƒ¥ ë¦¬í„´í•¨*/
 		if (del == NULL)	return;
 
 		prev->next = prev->next->next;
